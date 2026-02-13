@@ -11,6 +11,7 @@
     --bgcream: #f9f5ee;
     --teal: #14b8a6;
     --text: #242424;
+    --overlay__success: #41c975;
 }
 
 li {
@@ -34,6 +35,38 @@ section {
     background-color: var(--bgcream);
 }
 
+input, textarea {
+    width: 100%;
+    background-color: var(--text);
+    color: #fff;
+    outline: none;
+    border: 3px solid #c0c4cc;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+    transition: all 300ms ease;
+}
+
+input:hover, textarea:hover {
+    border-color: var(--bgcream)
+}
+
+input:focus, textarea:focus {
+    border-color: var(--teal)
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+    margin-top: 8px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .container {
     padding: 50px 0;
     width: 100%;
@@ -47,6 +80,7 @@ section {
 }
 
 .click {
+    cursor: pointer;
     transition: all 300ms ease;
 }
 
@@ -254,13 +288,14 @@ MODAL
 .modal__half {
     width: 50%;
     padding: 40px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
 .modal__about {
     background-color: #f4efe6;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .modal__languages {
@@ -310,11 +345,90 @@ MODAL
 
 .modal__sub-title {
     margin: 12px 0 24px 0;
+    font-size: 14px;
 }
 
 .modal__para {
     margin-bottom: 12px;
     line-height: 1.75;
+}
+
+.form__item {
+    margin-bottom: 20px;
+}
+
+.form__submit {
+    background-color: var(--teal);
+    border: 2px solid var(--teal);
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 700;
+    width: 100%;
+    max-width: 240px;
+    padding: 12px 24px;
+    font-size: 20px;
+    transition: all 300ms ease;
+}
+
+.form__submit:hover {
+    border-color: #fff;
+    background-color: transparent;
+}
+
+.form__submit:active {
+    border-color: var(--teal);
+    color: var(--teal);
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.modal__overlay--loading {
+    background-color: var(--text);
+    font-size: 80px;
+}
+
+.modal__overlay--success {
+    background-color: var(--overlay__success);
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    padding: 28px;
+}
+
+.modal__overlay--visible {
+    z-index: 1;
+}
+
+.fa-spinner {
+    animation: spinner 1.5s infinite ease;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.modal__exit {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 36px;
+    z-index: 100;
 }
 
 /* 

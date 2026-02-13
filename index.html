@@ -7,6 +7,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/4c2fbb47e8.js" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "QflkTU9XC-th6Tl4U",
+            });
+        })();
+    </script>
 </head>
 
 <body>
@@ -64,7 +74,10 @@
             <div class="modal__half modal__about">
                 <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
                 <h4 class="modal__sub-title modal__sub-title--about">Aspiring Frontend Developer</h4>
-                <p class="modal__para modal__para--about">I'm a 23 year old American veteran diving headfirst into web development through <b class="teal">Frontend Simplified</b>.<br>I love creating <b class="teal">clean</b> web designs, and challenging myself to develop <b class="teal">responsive</b> user interfaces, one project at a time.</p>
+                <p class="modal__para modal__para--about">I'm a 23 year old American veteran diving headfirst into web
+                    development through <b class="teal">Frontend Simplified</b>.<br>I love creating <b
+                        class="teal">clean</b> web designs, and challenging myself to develop <b
+                        class="teal">responsive</b> user interfaces, one project at a time.</p>
                 <div class="modal__languages">
                     <figure class="modal__language">
                         <img class="modal__language--img" src="assets/HTML5_Badge.png">
@@ -80,7 +93,32 @@
                     </figure>
                 </div>
             </div>
-            <div class="modal__half modal__contact">Let's have a chat!</div>
+            <div class="modal__half modal__contact">
+                <h3 class="modal__title modal__title--contact">Let's have a chat!</h3>
+                <h3 class="modal__sub-title modal__sub-title--contact">I'm Currently open to new opportunities.</h3>
+                <form class="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label" for="name">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label" for="email">E-mail</label>
+                        <input class="input" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label" for="message">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">Send it my way</button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon!
+                </div>
+            </div>
+            <i class="fa-solid fa-times modal__exit click"></i>
         </div>
     </section>
     <section id="projects">
