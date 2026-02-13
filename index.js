@@ -1,6 +1,18 @@
 const templateId = "template_4ud63sl";
 const serviceId = "service_zwm3y3n";
 const publicKey = "QflkTU9XC-th6Tl4U";
+let isModalOpen = false
+let contrastToggle = false
+
+function toggleContrast() {
+    contrastToggle = !contrastToggle
+    if (contrastToggle) {
+        document.body.classList += " dark-theme"
+    }
+    else {
+        document.body.classList.remove("dark-theme")
+    }
+}
 
 function contact(event) {
 	event.preventDefault();
@@ -22,4 +34,13 @@ function contact(event) {
             "The email service is temporarily unavailable. Please contact me directly at email@email.com"
         )
     })
+}
+
+function toggleModal() {
+    if (isModalOpen) {
+        isModalOpen = false
+        return document.body.classList.remove("modal--open")
+    }
+    isModalOpen = true
+    document.body.classList += " modal--open"
 }
